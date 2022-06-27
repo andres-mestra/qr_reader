@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
         'home': (_) => const HomePage(),
         'mapa': (_) => const MapaPage(),
       },
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
     );
   }
 }
