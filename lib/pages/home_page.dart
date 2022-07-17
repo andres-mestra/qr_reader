@@ -37,12 +37,19 @@ class _HomePageBody extends StatelessWidget {
 
     final currentIndex = uiProvider.selectedMenuOpt;
 
+    //Use ScanListPrivider
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
+        scanListProvider.loadScansForType('geo');
         return const MapasPage();
       case 1:
+        scanListProvider.loadScansForType('http');
         return const DireccionesPage();
       default:
+        scanListProvider.loadScansForType('geo');
         return const MapasPage();
     }
   }
