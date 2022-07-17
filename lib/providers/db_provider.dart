@@ -99,7 +99,7 @@ class DBProvider {
     return res.isNotEmpty ? res.map((s) => ScanModel.fromJson(s)).toList() : [];
   }
 
-  Future<List<ScanModel>?> whereScans(String key, String value) async {
+  Future<List<ScanModel>> whereScans(String key, String value) async {
     final db = await database;
     final res = await db?.query('Scans', where: '$key = ?', whereArgs: [value]);
     res!;
