@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:qr_reader/pages/pages.dart';
 import 'package:qr_reader/widgets/widgets.dart';
-import 'package:qr_reader/providers/providers.dart';
+import 'package:qr_reader/hooks/use_providers.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,13 +32,12 @@ class _HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final uiProvider = Provider.of<UiProvider>(context);
-
+    final uiProvider = UseProviders.uiProvider(context);
     final currentIndex = uiProvider.selectedMenuOpt;
 
     //Use ScanListPrivider
     final scanListProvider =
-        Provider.of<ScanListProvider>(context, listen: false);
+        UseProviders.scanListProvider(context, listen: false);
 
     switch (currentIndex) {
       case 0:
