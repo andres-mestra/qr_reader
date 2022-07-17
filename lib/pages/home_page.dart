@@ -14,7 +14,11 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              final scanListProvider =
+                  UseProviders.scanListProvider(context, listen: false);
+              scanListProvider.deleteAll();
+            },
             icon: const Icon(Icons.delete_forever),
           )
         ],
